@@ -1,0 +1,8 @@
+{
+  "name": "Nexora - Data & Automation Solutions",
+  "description": "A high-performance business website for Nexora, helping SMEs turn raw data into actionable insights and automated workflows.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
