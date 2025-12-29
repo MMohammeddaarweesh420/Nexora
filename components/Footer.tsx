@@ -56,8 +56,8 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} Nexora Solutions. All rights reserved.
           </p>
           <div className="flex space-x-6 text-xs text-gray-500">
-            <a href="#" className="hover:text-emerald-400 transition-colors">{t('footer_privacy')}</a>
-            <a href="#" className="hover:text-emerald-400 transition-colors">{t('footer_terms')}</a>
+            <Link to="/privacy" className="hover:text-emerald-400 transition-colors">{t('footer_privacy')}</Link>
+            <Link to="/terms" className="hover:text-emerald-400 transition-colors">{t('footer_terms')}</Link>
           </div>
         </div>
       </div>
