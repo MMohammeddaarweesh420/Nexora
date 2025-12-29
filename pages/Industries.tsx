@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Section from '../components/Section';
 import Button from '../components/Button';
@@ -10,22 +9,22 @@ const Industries: React.FC = () => {
 
   const industries = [
     {
-      title: language === 'ar' ? "الرعاية الصحية" : (language === 'es' ? "Salud" : "Healthcare"),
-      desc: language === 'ar' ? "توقع احتياجات المرضى وتحسين تخصيص الموظفين وإدارة الموارد بكفاءة." : "Predict patient needs, optimize staff allocation, and manage resources efficiently through intelligent capacity planning.",
+      title: t('ind_hc_title'),
+      desc: t('ind_hc_desc'),
       icon: "🏥",
-      useCases: language === 'ar' ? ["تحسين جدولة الموظفين", "تحليل وقت انتظار المرضى", "توقع مخزون الموارد"] : ["Staff Scheduling Optimization", "Patient Wait Time Analysis", "Resource Inventory Prediction"]
+      useCases: [t('ind_hc_uc1'), t('ind_hc_uc2'), t('ind_hc_uc3')]
     },
     {
-      title: language === 'ar' ? "التجزئة والشركات الصغيرة" : (language === 'es' ? "Retail y Pymes" : "Retail & SMEs"),
-      desc: language === 'ar' ? "تحسين المخزون، وتوقع المبيعات الموسمية، وتحسين رؤى العملاء لزيادة القيمة." : "Optimize inventory, forecast seasonal sales, and improve customer insights to drive lifetime value.",
+      title: t('ind_rt_title'),
+      desc: t('ind_rt_desc'),
       icon: "🛒",
-      useCases: language === 'ar' ? ["إدارة المخزون الذكية", "التنبؤ باتجاهات المبيعات", "تحليل معدل فقدان العملاء"] : ["Smart Inventory Management", "Sales Trend Forecasting", "Customer Churn Analysis"]
+      useCases: [t('ind_rt_uc1'), t('ind_rt_uc2'), t('ind_rt_uc3')]
     },
     {
-      title: language === 'ar' ? "العمليات والمالية" : (language === 'es' ? "Operaciones y Finanzas" : "Operations & Finance"),
-      desc: language === 'ar' ? "تقليل وقت إعداد التقارير، واكتشاف الحالات الشاذة، واتخاذ قرارات أسرع." : "Reduce reporting time, detect anomalies, and make faster decisions with integrated financial dashboards.",
+      title: t('ind_fn_title'),
+      desc: t('ind_fn_desc'),
       icon: "📈",
-      useCases: language === 'ar' ? ["تقارير مالية مؤتمتة", "اكتشاف الحالات الشاذة والاحتيال", "نمذجة تخصيص الميزانية"] : ["Automated Financial Reporting", "Anomaly & Fraud Detection", "Budget Allocation Modeling"]
+      useCases: [t('ind_fn_uc1'), t('ind_fn_uc2'), t('ind_fn_uc3')]
     }
   ];
 
@@ -51,7 +50,7 @@ const Industries: React.FC = () => {
               <p className="text-slate-600 dark:text-gray-400 mb-8 flex-grow leading-relaxed">{industry.desc}</p>
               <div className="space-y-3">
                 <h4 className="text-xs font-bold uppercase tracking-widest text-sky-500">
-                  {language === 'ar' ? 'حالات الاستخدام الرئيسية' : 'Key Use Cases'}
+                  {t('industries_key_use_cases')}
                 </h4>
                 <ul className="space-y-2">
                   {industry.useCases.map((useCase, i) => (
@@ -72,7 +71,7 @@ const Industries: React.FC = () => {
       <Section className="text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-slate-900 dark:text-white">
-            {language === 'ar' ? 'تعرف على كيف يمكننا مساعدة قطاعك' : 'See How We Can Help Your Industry'}
+            {t('industries_cta_title')}
           </h2>
           <Link to="/contact">
             <Button size="lg" variant="secondary">{t('nav_cta')}</Button>

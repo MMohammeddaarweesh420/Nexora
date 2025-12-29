@@ -52,18 +52,18 @@ const Home: React.FC = () => {
           <div className="relative">
             <div className="glass-card rounded-2xl p-4 shadow-xl dark:shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
                <img 
-                src="https://images.unsplash.com/photo-1551288049-bbbda5366a71?auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1551288049-bbbda5366a71?auto=format&fit=crop&w=1200&q=80" 
                 alt="Business Analytics Dashboard" 
                 className="rounded-xl w-full h-auto opacity-95 dark:opacity-90 border border-slate-200 dark:border-white/10 shadow-sm"
               />
-              <div className={`absolute -bottom-6 ${language === 'ar' ? '-right-6' : '-left-6'} glass-card p-4 rounded-xl hidden md:block shadow-lg`}>
+              <div className={`absolute -bottom-6 ${language === 'ar' ? '-right-6' : '-left-6'} glass-card p-4 rounded-xl hidden md:block shadow-lg z-10`}>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                   <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                   </div>
                   <div>
                     <div className="text-slate-900 dark:text-white font-bold text-xl">+127%</div>
-                    <div className="text-slate-500 dark:text-gray-400 text-xs">Efficiency Boost</div>
+                    <div className="text-slate-500 dark:text-gray-400 text-xs">{t('hero_efficiency_boost')}</div>
                   </div>
                 </div>
               </div>
@@ -80,27 +80,27 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              title: language === 'ar' ? "تحليلات البيانات ولوحات التحكم" : "Data Analytics & Dashboards",
-              desc: language === 'ar' ? "حول بياناتك إلى رؤى بصرية لاتخاذ قرارات أفضل." : "Turn your data into visual insights for better decisions. Stop wrestling with messy spreadsheets.",
+              title: t('services_data_title'),
+              desc: t('services_data_desc'),
               icon: "📊"
             },
             {
-              title: language === 'ar' ? "الأتمتة وسير العمل" : "Automation & Workflows",
-              desc: language === 'ar' ? "قلل العمل اليدوي من خلال عمليات مؤتمتة ذكية." : "Reduce manual work with smart automated processes. Integrate your tools and let them talk to each other.",
+              title: t('services_auto_title'),
+              desc: t('services_auto_desc'),
               icon: "⚙️"
             },
             {
-              title: language === 'ar' ? "التنبؤ التحليلي" : "Predictive Forecasting",
-              desc: language === 'ar' ? "توقع الاتجاهات وخطط للمستقبل بثقة تامة." : "Anticipate trends and plan ahead with confidence using machine learning and historical analysis.",
+              title: t('services_pred_title'),
+              desc: t('services_pred_desc'),
               icon: "🚀"
             }
           ].map((service, idx) => (
-            <div key={idx} className="glass-card p-8 rounded-2xl hover:border-emerald-500/30 transition-all group shadow-sm hover:shadow-md">
-              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
+            <div key={idx} className="glass-card p-8 rounded-2xl border border-transparent hover:border-emerald-500/20 transition-all duration-500 group shadow-sm hover:shadow-xl hover:shadow-emerald-500/5 hover:scale-[1.03] hover:-translate-y-1">
+              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-500">{service.icon}</div>
               <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{service.title}</h3>
               <p className="text-slate-600 dark:text-gray-400 mb-6">{service.desc}</p>
               <Link to="/services" className="text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
-                {language === 'ar' ? 'تعرف على المزيد' : 'Learn more'} 
+                {t('learn_more')} 
                 <svg className={`w-4 h-4 ${language === 'ar' ? 'mr-2 rotate-180' : 'ml-2'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Link>
             </div>
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
       <Section id="audit">
         <div className="glass-card rounded-3xl p-8 md:p-12 border-emerald-500/20 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="rtl:text-right">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white">{t('audit_title')}</h2>
               <p className="text-slate-600 dark:text-gray-400 mb-8 leading-relaxed">
                 {language === 'ar' ? 'هل تتساءل أين يمكنك التحسين؟ صف عمليات عملك الحالية أو تحديات البيانات الخاصة بك، وسيقوم الذكاء الاصطناعي لدينا بتقديم تدقيق فوري عالي المستوى.' : 'Wondering where you could improve? Describe your current business operations or data challenges, and our AI will provide an immediate high-level audit.'}
@@ -136,18 +136,18 @@ const Home: React.FC = () => {
               {auditResult ? (
                 <div className="w-full text-left rtl:text-right animate-in fade-in duration-500">
                   <div className="flex justify-between items-center mb-6">
-                    <span className="text-xs text-slate-500 dark:text-gray-500 uppercase font-bold tracking-widest">{language === 'ar' ? 'درجة الكفاءة' : 'Efficiency Score'}</span>
+                    <span className="text-xs text-slate-500 dark:text-gray-500 uppercase font-bold tracking-widest">{t('audit_score')}</span>
                     <span className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">{auditResult.score}/100</span>
                   </div>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-emerald-600 dark:text-emerald-400 font-semibold text-sm mb-2">{language === 'ar' ? 'نقاط الألم' : 'Pain Points'}</h4>
+                      <h4 className="text-emerald-600 dark:text-emerald-400 font-semibold text-sm mb-2">{t('audit_pain')}</h4>
                       <ul className="list-disc list-inside text-slate-600 dark:text-gray-400 text-sm space-y-1">
                         {auditResult.painPoints.map((p: string, i: number) => <li key={i}>{p}</li>)}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-sky-600 dark:text-sky-400 font-semibold text-sm mb-2">{language === 'ar' ? 'التوصيات' : 'Recommendations'}</h4>
+                      <h4 className="text-sky-600 dark:text-sky-400 font-semibold text-sm mb-2">{t('audit_rec')}</h4>
                       <ul className="list-disc list-inside text-slate-600 dark:text-gray-400 text-sm space-y-1">
                         {auditResult.recommendations.map((r: string, i: number) => <li key={i}>{r}</li>)}
                       </ul>
@@ -159,9 +159,9 @@ const Home: React.FC = () => {
                   {isLoading ? (
                     <div className="flex flex-col items-center space-y-4">
                       <div className="w-12 h-12 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin"></div>
-                      <p>{language === 'ar' ? 'جاري المسح بحثاً عن عدم الكفاءة...' : 'Scanning for inefficiencies...'}</p>
+                      <p>{t('audit_scanning')}</p>
                     </div>
-                  ) : (language === 'ar' ? 'ستظهر نتائج التدقيق هنا.' : 'Audit results will appear here.')}
+                  ) : t('audit_placeholder_result')}
                 </div>
               )}
             </div>

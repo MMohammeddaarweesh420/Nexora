@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Section from '../components/Section';
 import Button from '../components/Button';
@@ -10,21 +9,21 @@ const Services: React.FC = () => {
 
   const serviceList = [
     {
-      title: language === 'ar' ? "تحليلات البيانات ولوحات التحكم" : (language === 'es' ? "Analítica de Datos y Dashboards" : "Data Analytics & Dashboards"),
+      title: t('services_data_title'),
       problem: language === 'ar' ? "تعتمد معظم الشركات الصغيرة والمتوسطة على جداول البيانات البطيئة والمعرضة للخطأ." : "Most SMEs rely on spreadsheets that are slow, siloed, and error-prone.",
       solution: language === 'ar' ? "لوحات تحكم حية تصور مؤشرات الأداء الرئيسية والاتجاهات في الوقت الفعلي." : "Live dashboards visualize KPIs and trends in real-time by integrating directly with your data sources.",
       result: language === 'ar' ? "قرارات أسرع ومستنيرة تدفع النمو وتحدد الفرص الجديدة." : "Faster, informed decisions that drive growth and identify new opportunities before competitors.",
       icon: "📊"
     },
     {
-      title: language === 'ar' ? "الأتمتة وتحسين سير العمل" : (language === 'es' ? "Automatización y Optimización de Procesos" : "Automation & Workflow Optimization"),
+      title: t('services_auto_title'),
       problem: language === 'ar' ? "تضيع المهام المتكررة اليدوية وقت الموظفين وتسبب أخطاء بشرية." : "Manual repetitive tasks waste valuable employee time and cause inevitable human errors.",
       solution: language === 'ar' ? "نقوم برسم خرائط لعملياتك وأتمتة المهام باستخدام تكاملات مخصصة." : "We map your processes and automate tasks using custom integrations and AI-driven workflows.",
       result: language === 'ar' ? "تخفيض كبير في التكاليف، وأخطاء تقترب من الصفر، وفريق أكثر إنتاجية." : "Significant cost reduction, near-zero errors, and a more engaged, productive team.",
       icon: "⚙️"
     },
     {
-      title: language === 'ar' ? "التحليلات التنبؤية والتوقعات" : (language === 'es' ? "Analítica Predictiva y Proyecciones" : "Predictive Analytics & Forecasting"),
+      title: t('services_pred_title'),
       problem: language === 'ar' ? "غالبًا ما تتفاعل الشركات مع تغيرات السوق بدلاً من التخطيط لها." : "Businesses often react to market changes instead of planning for them, leading to missed targets.",
       solution: language === 'ar' ? "استخدام نماذج التعلم الآلي للتنبؤ بالطلب واحتياجات المخزون." : "Use machine learning models to forecast demand, inventory needs, and market risks based on historical data.",
       result: language === 'ar' ? "تخطيط استراتيجي بثقة مطلقة، وتقليل المفاجآت، وتحسين تخصيص الموارد." : "Strategic planning with absolute confidence, reduced surprises, and optimized resource allocation.",
@@ -82,10 +81,10 @@ const Services: React.FC = () => {
       <Section className="text-center">
         <div className="max-w-2xl mx-auto glass-card p-12 rounded-3xl border-emerald-500/20 shadow-xl">
           <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">
-            {language === 'ar' ? 'ابدأ في تحسين عملك اليوم' : (language === 'es' ? 'Comience a mejorar su negocio hoy' : 'Start Improving Your Business Today')}
+            {t('services_cta_title')}
           </h2>
           <p className="text-slate-600 dark:text-gray-400 mb-8">
-            {language === 'ar' ? 'لست متأكداً من الخدمة التي تناسب مرحلتك الحالية؟ نقدم استشارة مجانية لمدة 30 دقيقة لمساعدتك في تحديد الأولويات.' : 'Not sure which service fits your current stage? We offer a free 30-minute consultation to help you prioritize.'}
+            {t('services_cta_desc')}
           </p>
           <Link to="/contact">
             <Button size="lg">{t('nav_cta')}</Button>

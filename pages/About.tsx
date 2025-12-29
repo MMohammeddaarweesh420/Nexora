@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Section from '../components/Section';
 import Button from '../components/Button';
@@ -6,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
 
 const About: React.FC = () => {
-  const { t, language } = useApp();
+  const { t } = useApp();
 
   return (
     <div>
@@ -29,15 +28,15 @@ const About: React.FC = () => {
       <Section dark>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="glass-card p-10 rounded-3xl bg-gradient-to-br from-emerald-500/10 to-transparent dark:from-emerald-500/5 dark:to-transparent rtl:text-right">
-            <h3 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">{language === 'ar' ? 'مهمتنا' : (language === 'es' ? 'Nuestra Misión' : 'Our Mission')}</h3>
+            <h3 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">{t('about_mission')}</h3>
             <p className="text-slate-700 dark:text-gray-300 text-lg leading-relaxed italic">
-              {language === 'ar' ? '"مساعدة الشركات الصغيرة والمتوسطة على اتخاذ قرارات واثقة قائمة على البيانات باستخدام أتمتة مخصصة تتوسع جنباً إلى جنب مع طموحاتهم."' : '"To help SMEs make confident, data-backed decisions using tailored automation that scales alongside their ambitions."'}
+              {t('about_mission_text')}
             </p>
           </div>
           <div className="glass-card p-10 rounded-3xl bg-gradient-to-br from-sky-500/10 to-transparent dark:from-sky-500/5 dark:to-transparent rtl:text-right">
-            <h3 className="text-2xl font-bold mb-4 text-sky-600 dark:text-sky-400">{language === 'ar' ? 'رؤيتنا' : (language === 'es' ? 'Nuestra Visión' : 'Our Vision')}</h3>
+            <h3 className="text-2xl font-bold mb-4 text-sky-600 dark:text-sky-400">{t('about_vision')}</h3>
             <p className="text-slate-700 dark:text-gray-300 text-lg leading-relaxed italic">
-              {language === 'ar' ? '"عالم تعمل فيه الشركات من جميع الأحجام بكفاءة مطلقة ووضوح استراتيجي."' : '"A world where businesses of all sizes operate with absolute efficiency and strategic clarity."'}
+              {t('about_vision_text')}
             </p>
           </div>
         </div>
@@ -46,22 +45,22 @@ const About: React.FC = () => {
       <Section>
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-            {language === 'ar' ? 'لماذا يثق بنا صناع القرار' : 'Why Decision-Makers Trust Us'}
+            {t('about_trust_title')}
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
             { 
-              title: language === 'ar' ? "خبرة عميقة" : "Deep Expertise", 
-              desc: language === 'ar' ? "يمتلك فريقنا عقوداً من الخبرة المشتركة في علم البيانات والعمليات اللينة." : "Our team has decades of combined experience in data science and lean operations." 
+              title: t('about_trust_1_title'), 
+              desc: t('about_trust_1_desc') 
             },
             { 
-              title: language === 'ar' ? "شراكة عملية" : "Hands-on Partnering", 
-              desc: language === 'ar' ? "نحن لا نقدم الاستشارات فحسب؛ بل نبني. نحن فريقك الخارجي للبيانات والأتمتة." : "We don't just consult; we build. We are your fractional data & automation team." 
+              title: t('about_trust_2_title'), 
+              desc: t('about_trust_2_desc') 
             },
             { 
-              title: language === 'ar' ? "العائد أولاً" : "ROI First", 
-              desc: language === 'ar' ? "نحن نعطي الأولوية للمشاريع التي تظهر تأثيراً فورياً على أرباحك النهائية." : "We prioritize projects that show immediate impact on your bottom line." 
+              title: t('about_trust_3_title'), 
+              desc: t('about_trust_3_desc') 
             }
           ].map((why, idx) => (
             <div key={idx} className="text-center">
@@ -77,7 +76,7 @@ const About: React.FC = () => {
 
       <Section dark className="text-center">
         <h2 className="text-4xl font-bold mb-8 text-slate-900 dark:text-white">
-          {language === 'ar' ? 'اعمل معنا' : 'Work with Us'}
+          {t('about_cta_work')}
         </h2>
         <Link to="/contact">
           <Button size="lg">{t('nav_cta')}</Button>

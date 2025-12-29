@@ -1,14 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
 import Logo from './Logo';
-import { useApp, Language } from '../contexts/AppContext';
+import { useApp } from '../contexts/AppContext';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, setTheme, language, setLanguage, t } = useApp();
+  const { theme, setTheme, language, cycleLanguage, t } = useApp();
   const location = useLocation();
 
   useEffect(() => {
@@ -24,13 +23,6 @@ const Navbar: React.FC = () => {
     { name: t('nav_about'), path: '/about' },
     { name: t('nav_contact'), path: '/contact' },
   ];
-
-  const cycleLanguage = () => {
-    const langs: Language[] = ['en', 'es', 'ar'];
-    const currentIdx = langs.indexOf(language);
-    const nextIdx = (currentIdx + 1) % langs.length;
-    setLanguage(langs[nextIdx]);
-  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 dark:bg-[#0B0F19]/80 backdrop-blur-lg border-b border-slate-200 dark:border-white/10 py-3' : 'bg-transparent py-5'}`}>
@@ -61,10 +53,15 @@ const Navbar: React.FC = () => {
               {/* Language Toggle */}
               <button 
                 onClick={cycleLanguage}
-                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-xs font-bold transition-colors w-10"
+                className="flex items-center space-x-2 px-3 py-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 transition-all active:scale-95 group"
                 title="Switch Language"
               >
-                {language.toUpperCase()}
+                <div className="w-5 h-5 flex items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                  <span className="text-[10px] font-bold uppercase">{language === 'en' ? 'AR' : 'EN'}</span>
+                </div>
+                <span className="text-xs font-bold text-slate-700 dark:text-gray-200 uppercase tracking-tighter">
+                  {language === 'en' ? 'English' : 'العربية'}
+                </span>
               </button>
 
               {/* Theme Toggle */}
@@ -103,7 +100,12 @@ const Navbar: React.FC = () => {
             <Link key={item.path} to={item.path} onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">{item.name}</Link>
           ))}
           <div className="flex justify-between items-center py-2 border-t border-slate-100 dark:border-white/10">
-            <button onClick={cycleLanguage} className="font-bold">{language.toUpperCase()}</button>
+            <button onClick={cycleLanguage} className="font-bold flex items-center space-x-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h18" />
+              </svg>
+              <span>{language === 'en' ? 'EN / AR' : 'العربية / EN'}</span>
+            </button>
             <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
               {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
             </button>
