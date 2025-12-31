@@ -50,7 +50,7 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="glass-card rounded-2xl p-4 shadow-xl dark:shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+            <div className="glass-card rounded-2xl p-4 shadow-xl dark:shadow-2xl transform hover:scale-[1.02] transition-transform duration-500 overflow-hidden">
                <img 
                 src="https://images.unsplash.com/photo-1551288049-bbbda5366a71?auto=format&fit=crop&w=1200&q=80" 
                 alt="Business Analytics Dashboard" 
